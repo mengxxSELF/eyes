@@ -7,9 +7,20 @@
     "target": "es2017",
     "jsx": "react",
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "node_modules/*",
+      ]
+    },
+    "lib": [
+      "es2017"
+    ]
   },
   "include": [
-    "./client/*"
+    "./controller/**/*"
   ]
 }

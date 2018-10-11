@@ -12,7 +12,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const _routing_controllers_0_7_7_routing_controllers_1 = require("_routing-controllers@0.7.7@routing-controllers");
+const routing_controllers_1 = require("routing-controllers");
 let default_1 = class default_1 {
     async index(device) {
         console.log('device');
@@ -21,27 +21,26 @@ let default_1 = class default_1 {
         };
     }
     async user() {
-        console.log('123');
         return {
             code: 200
         };
     }
 };
 __decorate([
-    _routing_controllers_0_7_7_routing_controllers_1.Get('/'),
-    __param(0, _routing_controllers_0_7_7_routing_controllers_1.HeaderParam('device')),
+    routing_controllers_1.Get('/'),
+    __param(0, routing_controllers_1.HeaderParam('device')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], default_1.prototype, "index", null);
 __decorate([
-    _routing_controllers_0_7_7_routing_controllers_1.Get('/user'),
+    routing_controllers_1.Get('/user'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], default_1.prototype, "user", null);
 default_1 = __decorate([
-    _routing_controllers_0_7_7_routing_controllers_1.Controller()
+    routing_controllers_1.Controller()
 ], default_1);
 exports.default = default_1;
 //# sourceMappingURL=main.js.map

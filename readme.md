@@ -23,6 +23,9 @@
 
 #### 掉坑记录
 
+
+
+
 * hot属性
 
 ![](https://user-gold-cdn.xitu.io/2018/10/10/1665d123038aa2af?w=796&h=319&f=png&s=100094)
@@ -102,7 +105,9 @@ new MiniCssExtractPlugin({
 
 ```
 
-#### webpack 基本配置完毕之后 将其调整为ts版本
+### webpack 基本配置完毕之后 将其调整为ts版本
+
+之前代码参见 origin 分支
 
 参考文章，[官网地址](https://webpack.docschina.org/configuration/configuration-languages/#typescript)
 
@@ -156,6 +161,78 @@ ts.config 中有一个 allowJs 参数 如果设置为TRUE 则可以引入js文�
 
 暂时将js文件名修改了
 
+* import path from 'path'
+
+发现在代码中 引入 path 会有提示 没有默认导出
+
+可以调整 
+
+```js
+import * as path from 'path'
+```
+
+或者调整 tsconfig 参数
+
+```js
+    "moduleResolution": "node",
+```
 
 
+
+### 调整 server 中使用 routing-controllers 
+
+之前代码参见 ts 分支
+
+[routing-controllers](https://juejin.im/repo/5a7cab975188250cabc90fd0#working-with-json)
+
+#### 掉坑记录
+
+* 在 controller index.ts 中
+
+```js
+const app = createKoaServer({
+  controllers: ['./*.ts'],
+})
+```
+
+![](https://user-gold-cdn.xitu.io/2018/10/11/16662603f700e205?w=956&h=240&f=png&s=46549)
+
+不明白为什么会找到外部的文件
+
+暂时调整为指定的 main 
+
+```js
+const app = createKoaServer({
+  controllers: ['./main.js'],
+})
+```
+
+然而这么写了之后依旧有问题 main.js文件不会被正确加载进来
+
+需要使用绝对路径处理才可以
+
+```js
+const app = createKoaServer({
+  controllers: [path.resolve(__dirname, `./module/*.js`)],
+})
+```
+
+* 不能使用 @render 
+
+```js
+  @Get('/')
+  @Render('index')
+  async index (
+    @HeaderParam('device') device: string
+  ) {
+    console.log('device')
+    return {
+      title: 'i am title'
+    }
+  }
+```
+
+这样写了之后 后面的代码就无法运行了
+
+[同事有提出这个问题](https://blog.jiasm.org/2018/08/26/TypeScript%E5%9C%A8react%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E5%AE%9E%E8%B7%B5/)
 
