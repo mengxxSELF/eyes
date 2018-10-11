@@ -4,6 +4,8 @@ const modules = require('./webpack/Modules')
 const resolves = require('./webpack/Resolve')
 const plugins = require('./webpack/Plugin')
 
+console.log('I am common.js')
+
 const webpackOptions = {
   entry: {
     vendor: ['react', 'react-dom'],

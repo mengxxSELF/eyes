@@ -1,10 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+require("reflect-metadata");
 const Koa = require("koa");
-const app = new Koa();
-const port = 6666;
 const main_1 = require("./main");
-app.use(require('koa-static')(__dirname + '/public'));
+const views = require("koa-views");
+const path = require("path");
+const app = new Koa();
+const port = 7777;
+// 从dist目录中获取静态资源
+app.use(require('koa-static')(path.join(__dirname, '../dist')));
+app.use(views(path.join(__dirname, '../dist'), {
+    extension: 'html'
+}));
 app.use(main_1.default.routes());
 app.use(main_1.default.allowedMethods());
 app.on('error', (err, ctx) => {

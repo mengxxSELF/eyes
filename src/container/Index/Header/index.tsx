@@ -6,6 +6,7 @@ export default class Header extends React.Component {
     return (
       <div className='header'>
         <img src={require('./logo.png')} alt='logo' />
+        1234
       </div>
     )
   }
