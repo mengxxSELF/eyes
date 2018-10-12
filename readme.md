@@ -236,3 +236,56 @@ const app = createKoaServer({
 
 [同事有提出这个问题](https://blog.jiasm.org/2018/08/26/TypeScript%E5%9C%A8react%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E5%AE%9E%E8%B7%B5/)
 
+### 添加mysql配置
+
+本地安装mysql,从官网下载并一路OK之后，到启动mysql阶段
+
+* 环境变量的设置
+
+命令行输入
+
+```js
+mysql -uroot -p
+```
+
+提示
+
+```js
+zsh: commod not found
+```
+需要将mysql添加到系统环境变量中
+
+```js
+cd /usr/local/mysql/bin
+vim ~/.bash_profile
+
+//添加
+
+# mysql
+
+export PATH=$PATH:/usr/local/mysql/bin
+```
+
+保存之后执行 source ~/.bash_profile （相当于重启）
+
+关于环境变量部分知识 可阅读 [《Linux - 环境配置文件》](https://juejin.im/post/5b87a160e51d4538b2048fe0#heading-71)
+
+但是一旦新开一个窗口执行mysql 依旧提示 zsh: commod not found 
+
+
+因为安装zsh，~/.bash_profile就不会被执行
+
+所以需要将刚刚的环境变量 也添加到  ~/.zshrc 才可以
+
+* 链接mysql
+
+在命令行输入
+
+```js
+mysql -uroot -p
+```
+
+然后提示
+
+![mysql](https://user-gold-cdn.xitu.io/2018/10/12/16666d75c9ce2602?w=690&h=56&f=png&s=11738)
+

@@ -11,14 +11,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const routing_controllers_1 = require("routing-controllers");
+const fs_1 = __importDefault(require("fs"));
+const path_1 = __importDefault(require("path"));
 let default_1 = class default_1 {
     async index(device) {
-        console.log('device');
-        return {
-            title: 'i am title'
-        };
+        const body = fs_1.default.readFileSync(path_1.default.resolve('dist', 'index.html'));
+        return body;
     }
     async user() {
         return {

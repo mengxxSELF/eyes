@@ -11,7 +11,7 @@ const app = createKoaServer({
 const port = 7777
 
 // 从dist目录中获取静态资源
-app.use(require('koa-static')(path.join(__dirname, '../dist')))
+// app.use(require('koa-static')(path.join(__dirname, '../dist')))
 
 // app.use(views(path.join(__dirname, '../dist'), {
 //   extension: 'html'

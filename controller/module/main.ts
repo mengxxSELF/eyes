@@ -1,4 +1,6 @@
 import { Controller, Render, Get, HeaderParam } from "routing-controllers"
+import fs from 'fs'
+import path from 'path'
 
 @Controller()
 export default class {
@@ -6,10 +8,8 @@ export default class {
   async index (
     @HeaderParam('device') device: string
   ) {
-    console.log('device')
-    return {
-      title: 'i am title'
-    }
+    const body = fs.readFileSync(path.resolve('dist', 'index.html'))
+    return body
   }
 
   @Get('/user')
