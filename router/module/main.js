@@ -18,12 +18,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const routing_controllers_1 = require("routing-controllers");
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
+const sql_1 = __importDefault(require("../config/sql"));
 let default_1 = class default_1 {
     async index(device) {
         const body = fs_1.default.readFileSync(path_1.default.resolve('dist', 'index.html'));
         return body;
     }
     async user() {
+        const sql = `select * from eyes_users`;
+        const end = await sql_1.default(sql);
+        console.log(end, 'end');
         return {
             code: 200
         };
@@ -37,7 +41,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], default_1.prototype, "index", null);
 __decorate([
-    routing_controllers_1.Get('/user'),
+    routing_controllers_1.Get('/login'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)

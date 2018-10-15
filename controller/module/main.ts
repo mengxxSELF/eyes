@@ -17,7 +17,7 @@ export default class {
   async user() {
     const sql = `select * from eyes_users`
     const end = await query(sql)
-    console.log(end)
+    console.log(end, 'end')
     return {
       code: 200
     }
