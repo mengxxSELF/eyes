@@ -1,10 +1,21 @@
 import * as React from 'react'
 import * as ReactDOM from "react-dom"
-
+import { Route, Switch, HashRouter } from 'react-router-dom'
 import './index.scss'
 
-import {Index} from './container'
+import {Index, Login} from './container'
 
-// console.log('Index', Index)
+class Main extends React.Component {
+  render () {
+    return (
+      <HashRouter>
+        <Route path='/' component={Index} />
+        <Route path='/login' component={Login} />
+      </HashRouter>
+    )
+  }
+}
 
-ReactDOM.render(<Index />, document.querySelector('#app'))
+const rootDom = document.querySelector('#app') as HTMLElement
+
+ReactDOM.render(<Main />, rootDom)

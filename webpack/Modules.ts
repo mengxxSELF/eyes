@@ -29,7 +29,7 @@ export default {
     // 处理tsx
     {
       test: /\.(ts|tsx)?$/,
-      // include: /src/,
+      include: /src/,
       use: [
         {
           loader: 'ts-loader',
