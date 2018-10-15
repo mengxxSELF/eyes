@@ -19,12 +19,7 @@
 
   6666
 
-
-
 #### 掉坑记录
-
-
-
 
 * hot属性
 
@@ -238,6 +233,8 @@ const app = createKoaServer({
 
 ### 添加mysql配置
 
+#### 本地安装
+
 本地安装mysql,从官网下载并一路OK之后，到启动mysql阶段
 
 * 环境变量的设置
@@ -288,4 +285,67 @@ mysql -uroot -p
 然后提示
 
 ![mysql](https://user-gold-cdn.xitu.io/2018/10/12/16666d75c9ce2602?w=690&h=56&f=png&s=11738)
+
+
+#### 服务器安装
+
+服务器安装就不要按照本地安装的套路，而是使用Linux自带的安装包工具 yum
+
+[参考文章](https://blog.csdn.net/z13615480737/article/details/78906598)
+
+##### 本地连接服务器上的mysql数据库
+
+* 调整服务器
+
+1 登录数据库
+
+```js
+mysql -u root -p;
+```
+
+2 使用数据库 
+
+```js
+use mysql;
+```
+
+3 显示库中数据表
+```js
+show tables;
+```
+
+4 看下user表 中的信息
+
+```js
+select * from user \G;
+```
+
+\G 可以将返回的信息 改变格式 以树形结构返回 便于查看信息
+
+[参考文章](https://blog.csdn.net/u011479200/article/details/78511073)
+
+[参考文章](http://www.runoob.com/mysql/mysql-install.html)
+
+
+5 在user表中添加一个 host 值为 % 的 用户 root -- 用于进行本地连接服务器 
+
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123' WITH GRANT OPTION;
+
+
+* 使用sequel pro 连接
+
+有三种链接方式
+![](https://user-gold-cdn.xitu.io/2018/10/15/16675baf4f3d4b94?w=1132&h=754&f=png&s=83507)
+
+我们需要使用的是 第三个 ssh 
+
+![](https://user-gold-cdn.xitu.io/2018/10/15/16675bbb3b2ac661?w=974&h=1094&f=png&s=115070)
+
+就相当于 ssh 登录到服务器之后 在去登录mysql
+
+所以上部分填写mysql的信息 下部分是填写服务器的信息 
+
+在填写上部分mysql信息的时候 host 使用的是 127.0.0.1  但是不可以使用localhost
+
+![mysql](https://user-gold-cdn.xitu.io/2018/10/15/16675d5a5e3ded78?w=798&h=394&f=png&s=103861)
 
