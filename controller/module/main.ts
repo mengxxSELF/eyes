@@ -1,6 +1,7 @@
 import { Controller, Render, Get, HeaderParam } from "routing-controllers"
 import fs from 'fs'
 import path from 'path'
+import query from '../config/sql'
 
 @Controller()
 export default class {
@@ -12,8 +13,11 @@ export default class {
     return body
   }
 
-  @Get('/user')
+  @Get('/login')
   async user() {
+    const sql = `select * from eyes_users`
+    const end = await query(sql)
+    console.log(end, 'end')
     return {
       code: 200
     }
