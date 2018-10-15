@@ -22,7 +22,7 @@ module.exports = function (shipit) {
       },
       pm: {
         production: {
-          path: '/home/work/eyes/pm2.production.json'
+          path: '/home/work/eyes/current/pm2.production.json'
         }
       }
     },

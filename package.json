@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "shipit production deploy",
     "ts": "tsc -w",
     "start": "nodemon router/index.js",
     "dev": "webpack-dev-server --open --hot --config webpack.dev.js --mode development",
@@ -54,6 +55,9 @@
     "react-dom": "^16.5.2",
     "sass-loader": "^7.1.0",
     "scss-loader": "^0.0.1",
+    "shipit-cnpm": "^0.7.0",
+    "shipit-deploy": "^4.1.1",
+    "shipit-pm": "^0.3.0",
     "style-loader": "^0.23.1",
     "ts-loader": "^5.2.1",
     "ts-node": "^7.0.1",
