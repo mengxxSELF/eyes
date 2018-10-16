@@ -19,6 +19,23 @@
 
   6666
 
+启动方式
+
+```js
+npm run start
+```
+
+本地开发
+
+```js
+npm run devts
+```
+打包
+
+```js
+npm run buildts
+```
+
 #### 掉坑记录
 
 * hot属性
