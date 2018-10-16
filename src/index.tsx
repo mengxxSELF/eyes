@@ -10,7 +10,6 @@ class Main extends React.Component {
     return (
       <HashRouter>
         <Route path='/' component={Index} />
-        <Route path='/login' component={Login} />
       </HashRouter>
     )
   }
@@ -18,4 +17,4 @@ class Main extends React.Component {
 
 const rootDom = document.querySelector('#app') as HTMLElement
 
-ReactDOM.render(<Main />, rootDom)
+ReactDOM.render(<Index />, rootDom)
