@@ -10,7 +10,7 @@
     "start": "nodemon router/index.js",
     "dev": "webpack-dev-server --open --hot --config webpack.dev.js --mode development",
     "build": "webpack --config webpack.common.js --mode development",
-    "buildts": "TS_NODE_PROJECT=tsconfig-for-webpack-config.json webpack --config webpack.common.ts --mode development",
+    "buildts": "TS_NODE_PROJECT=tsconfig-for-webpack-config.json webpack --config webpack.common.ts --mode production",
     "devts": "TS_NODE_PROJECT=tsconfig-for-webpack-config.json webpack-dev-server --open --hot --config webpack.dev.ts"
   },
   "repository": {
@@ -54,6 +54,7 @@
     "postcss-loader": "^3.0.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-hot-loader": "^4.3.11",
     "react-router-dom": "^4.3.1",
     "sass-loader": "^7.1.0",
     "scss-loader": "^0.0.1",

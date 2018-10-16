@@ -8,7 +8,7 @@ import merge from 'webpack-merge'
 const config: Configuration = merge(commonPlugin, {
 // const config: Configuration = Object.assign({}, commonPlugin, {
   mode: 'development',
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,

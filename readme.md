@@ -100,6 +100,10 @@ new MiniCssExtractPlugin({
 
 ```
 
+### other
+
+把 react 等包依赖的 TypeScript 声明"@types/***"也放在 dependencies 里面，是因为虽然这些类型声明依赖不会被打包到最后的运行代码中
+
 ### webpack 基本配置完毕之后 将其调整为ts版本
 
 之前代码参见 origin 分支

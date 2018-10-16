@@ -1,4 +1,7 @@
 {
+  "extends": [
+    "tslint-react"
+  ],
   "rules": {
     "class-name": true,
     "member-access": [

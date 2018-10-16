@@ -9,6 +9,7 @@ import UglifyjsWebpackPlugin from 'uglifyjs-webpack-plugin'
 // const ExtractTextPlugin = require("extract-text-webpack-plugin")
 // const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import { isDev } from './env'
 
 export default [
   // clearn
@@ -37,4 +38,6 @@ export default [
     template: './src/index.html'
   }),
 
+  // hot
+  new webpack.HotModuleReplacementPlugin()
 ]

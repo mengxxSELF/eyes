@@ -2,6 +2,8 @@
 // const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
+import { isDev } from './env'
+
 export default {
   rules: [
     // 处理css
@@ -30,11 +32,7 @@ export default {
     {
       test: /\.(ts|tsx)?$/,
       include: /src/,
-      use: [
-        {
-          loader: 'ts-loader',
-        }
-      ]
+      use: ['ts-loader']
     },
 
     // 处理JSon文件
