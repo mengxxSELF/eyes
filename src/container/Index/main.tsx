@@ -4,7 +4,9 @@ import {Header} from './'
 export default class Main extends React.Component {
   render() {
     return (
-      <Header />
+      <div>
+        <Header />
+      </div>
     )
   }
 }

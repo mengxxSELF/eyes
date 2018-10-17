@@ -1,0 +1,1 @@
+{  "name": "eyes",  "version": "0.1.0",  "description": "接口文档API",  "title": "接口文档API",  "sampleUrl": "localhost:7777",  "defaultVersion": "0.0.0",  "apidoc": "0.3.0",  "generator": {    "name": "apidoc",    "time": "2018-10-17T05:46:57.001Z",    "url": "http://apidocjs.com",    "version": "0.17.6"  }}

@@ -38,6 +38,12 @@ npm run buildts
 
 #### 掉坑记录
 
+* 无法使用webpack-dev-server
+
+![server](https://user-gold-cdn.xitu.io/2018/10/16/1667c69b5b9ea73b?w=1234&h=392&f=png&s=95865)
+
+需要安装 @types/webpack-dev-server
+
 * hot属性
 
 ![](https://user-gold-cdn.xitu.io/2018/10/10/1665d123038aa2af?w=796&h=319&f=png&s=100094)
@@ -115,6 +121,16 @@ new MiniCssExtractPlugin({
   chunkFilename: "[id].css"
 })
 
+```
+
+* postcss.config.js
+
+在module 有用  postcss 的时候，记得添加一个 postcss.config.js 文件
+
+不然会报错
+
+```js
+Cannot find module 'autoprefixer'
 ```
 
 ### other
@@ -453,19 +469,18 @@ GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123' WITH GRANT OPTION;
 #### 项目中链接mysql库
 
 ```js
-const Sequelize = require("sequelize")
-
-const sequelizeObject = new Sequelize('activity', 'root', '5211314mxx', {
-  host: 'localhost',    //数据库地址,默认本机
-  port: '3306',
-  dialect: 'mysql',
-  pool: {   //连接池设置
-    max: 5, //最大连接数
-    min: 0, //最小连接数
-    idle: 10000
-  },
-})
 const mysql = require('mysql')
+
+const mysqlConfig: MysqlConfig = {
+  host: ['127.0.0.1'], // 网址ip
+  port: 3306,  // 端口
+  user: 'root',  // 用户
+  password: '5211314mxx', // 密码
+  database: 'activity', // 数据库
+  key: 'mysql',
+}
+const pool = mysql.createPool(mysqlConfig)
+
 let query = function( sql, values ) {
   return new Promise(( resolve, reject ) => {
     pool.getConnection(function(err, connection) {
@@ -487,3 +502,45 @@ let query = function( sql, values ) {
 ```
 
 [参考文章](https://www.jianshu.com/p/dda014fbc2d8)
+
+#### 调整为 sequelize 
+
+不仅仅需要安装 sequelize 还需要 mysql2
+
+![sequelize]](https://user-gold-cdn.xitu.io/2018/10/16/1667ca3eb19e8427?w=1186&h=230&f=png&s=47489)
+
+```js
+const Sequelize = require("sequelize")
+
+const sequelizeObject = new Sequelize('activity', 'root', '5211314mxx', {
+  host: 'localhost',    //数据库地址,默认本机
+  port: '3306',
+  dialect: 'mysql',
+  pool: {   //连接池设置
+    max: 5, //最大连接数
+    min: 0, //最小连接数
+    idle: 10000
+  },
+})
+
+// 定义模型
+const User = sequelizeObject.define('eyes_users', {
+  id: {
+    type: Sequelize.INTEGER,
+    primaryKey: true
+  },
+  name: Sequelize.STRING(100), // 用户名
+  password: Sequelize.INTEGER(100) // 密码
+}, {
+  timestamps: false
+})
+
+```
+
+##### 调整为 sequelize-typescript 
+
+sequelize-typescript
+
+
+
+

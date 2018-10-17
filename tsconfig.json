@@ -10,17 +10,22 @@
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "esModuleInterop": true,
+    "typeRoots": [
+      "node_modules/*",
+      "controller/types/*"
+    ],
     "baseUrl": ".",
     "paths": {
       "*": [
         "node_modules/*",
+        "controller/types/*"
       ]
     },
     "lib": [
-      "es2017"
+      "es2017", "dom"
     ]
   },
   "include": [
-    "./controller/**/*"
+    "controller/**/*"
   ]
 }

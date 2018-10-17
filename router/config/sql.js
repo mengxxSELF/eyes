@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const mysql = require('mysql');
-const index_1 = require("./index");
-const pool = mysql.createPool(index_1.mysqlConfig);
+const _1 = require(".");
+const pool = mysql.createPool(_1.mysqlConfig);
 let sqlFn;
 sqlFn = (sql, values) => {
     return new Promise((resolve, reject) => {

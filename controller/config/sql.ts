@@ -1,5 +1,5 @@
 const mysql = require('mysql')
-import { mysqlConfig } from './index'
+import { mysqlConfig } from '.'
 const pool = mysql.createPool(mysqlConfig)
 
 interface sqlfn {

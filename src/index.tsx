@@ -6,10 +6,23 @@ import './index.scss'
 import {Index, Login} from './container'
 
 class Main extends React.Component {
+  componentDidMount () {
+    // 处理rem布局
+    const deviceWidth = document.body.clientWidth
+    const ratio = 100 * deviceWidth / 750
+    document.documentElement.style.fontSize = ratio + 'px'
+  }
   render () {
     return (
       <HashRouter>
-        <Route path='/' component={Index} />
+        <Switch>
+          <Route exact path='/' render={() => {
+            return <Index />
+          }} />
+          <Route path='/login' render={() => {
+            return <Login />
+          }} />
+        </Switch>
       </HashRouter>
     )
   }
@@ -17,4 +30,4 @@ class Main extends React.Component {
 
 const rootDom = document.querySelector('#app') as HTMLElement
 
-ReactDOM.render(<Index />, rootDom)
+ReactDOM.render(<Main />, rootDom)

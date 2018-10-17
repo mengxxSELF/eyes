@@ -1,0 +1,1 @@
+export type decodeConfig = (password: string) => string 

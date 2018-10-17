@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 // import Sequelize from 'sequelize'
 const Sequelize = require("sequelize");
 const sequelizeObject = new Sequelize('activity', 'root', '5211314mxx', {
@@ -10,4 +12,15 @@ const sequelizeObject = new Sequelize('activity', 'root', '5211314mxx', {
         idle: 10000
     },
 });
+// 定义模型
+const User = sequelizeObject.define('eyes_users', {
+    id: {
+        type: Sequelize.STRING(50),
+        primaryKey: true
+    },
+    name: Sequelize.STRING(100)
+}, {
+    timestamps: false
+});
+exports.default = User;
 //# sourceMappingURL=server.js.map

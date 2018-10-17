@@ -1,15 +1,9 @@
-// const webpack = require('webpack')
-// const CleanPlugin = require('clean-webpack-plugin')
-// const HtmlPlugin = require('html-webpack-plugin')
-// const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin')
 import webpack from 'webpack'
 import CleanPlugin from 'clean-webpack-plugin'
 import HtmlPlugin from 'html-webpack-plugin'
 import UglifyjsWebpackPlugin from 'uglifyjs-webpack-plugin'
-// const ExtractTextPlugin = require("extract-text-webpack-plugin")
-// const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import { isDev } from './env'
+import path from 'path'
 
 export default [
   // clearn
@@ -35,7 +29,7 @@ export default [
   // 合并CSS与js到 html
   new HtmlPlugin({
     filename: 'index.html',
-    template: './src/index.html'
+    template: './index.html'
   }),
 
   // hot
