@@ -3,6 +3,10 @@
   margin: 0;
   font-size: 0.26rem;
   outline: none;
+  box-sizing: border-box;
+}
+a {
+    text-decoration: none;
 }
 button {
     display: inline-block;

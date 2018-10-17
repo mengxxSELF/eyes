@@ -10,8 +10,10 @@ export default class Header extends React.Component {
   render () {
     return (
       <div className='header'>
-        <img src={require('./logo.png')} alt='logo' />
-        <Link to='/login'> to Login </Link>
+        <Link to='/login'> 注册/登录 </Link>
+        <div className='logo'>
+          <img src={require('./logo.png')} alt='logo' />
+        </div>
       </div>
     )
   }

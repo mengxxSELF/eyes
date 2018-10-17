@@ -2,7 +2,11 @@
   padding: 0;
   margin: 0;
   font-size: 0.26rem;
-  outline: none; }
+  outline: none;
+  box-sizing: border-box; }
+
+a {
+  text-decoration: none; }
 
 button {
   display: inline-block;
@@ -32,9 +36,40 @@ input {
   padding-left: 0.2rem;
   font-size: 0.32rem; }
 
+.header {
+  background: url(images/40567a2a586f0d5987cf2e543434cffc.jpg) no-repeat;
+  height: 5rem;
+  position: relative; }
+  .header > a {
+    width: 100%;
+    text-align: right;
+    padding: 0.2rem 0.2rem 0 0;
+    color: #fff;
+    display: block;
+    position: relative;
+    z-index: 3; }
+  .header::before {
+    position: absolute;
+    width: 100%;
+    height: 5rem;
+    background: rgba(0, 0, 0, 0.3);
+    content: ''; }
+
 img {
   width: 30px;
   border-radius: 6px; }
+
+.logo {
+  position: relative;
+  z-index: 3;
+  height: 3rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center; }
+  .logo img {
+    width: 1rem; }
 
 .users {
   background: url(images/4bb0bacc96a8227bcaecd772b8b8a795.jpg) no-repeat;
