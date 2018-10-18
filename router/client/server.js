@@ -1,6 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-// import Sequelize from 'sequelize'
+/*
+ * @Author: 孟闲闲  在此定义所需的表结构
+ * @Date: 2018-10-18 11:19:01
+ * @Last Modified by: mxx
+ * @Last Modified time: 2018-10-18 11:27:39
+ */
+// import {Sequelize} from 'sequelize'
 const Sequelize = require("sequelize");
 const sequelizeObject = new Sequelize('activity', 'root', '5211314mxx', {
     host: 'localhost',
@@ -12,8 +18,8 @@ const sequelizeObject = new Sequelize('activity', 'root', '5211314mxx', {
         idle: 10000
     },
 });
-// 定义模型
-const User = sequelizeObject.define('eyes_users', {
+// 定义模型 User
+exports.User = sequelizeObject.define('eyes_users', {
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true
@@ -23,5 +29,15 @@ const User = sequelizeObject.define('eyes_users', {
 }, {
     timestamps: false
 });
-exports.default = User;
+// 定义 Info
+exports.Info = sequelizeObject.define('eyes_info', {
+    id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true
+    },
+    userId: Sequelize.NUMBER,
+    brethday: Sequelize.STRING
+}, {
+    timestamps: true,
+});
 //# sourceMappingURL=server.js.map
