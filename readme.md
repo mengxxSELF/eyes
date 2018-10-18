@@ -542,5 +542,11 @@ const User = sequelizeObject.define('eyes_users', {
 sequelize-typescript
 
 
+有的时候发现一直调试代码但是还是报错，可能是因为 你的旧代码文件没有删除 所以将scripts 调整为
 
+```js
+  "start": "rm -fr router; nodemon router/index.js",
+```
+
+每次重启自动删除文件夹
 

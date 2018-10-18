@@ -2,7 +2,7 @@
  * @Author: 孟闲闲  -- 定义User模型
  * @Date: 2018-10-16 20:10:22 
  * @Last Modified by: mxx
- * @Last Modified time: 2018-10-17 14:26:33
+ * @Last Modified time: 2018-10-18 19:44:25
  */
 import { Table, Column, Model, DataType } from 'sequelize-typescript'
 

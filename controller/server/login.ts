@@ -2,9 +2,9 @@ import { Controller, Render, Get, HeaderParam, Param, QueryParam } from "routing
 import fs from 'fs'
 import path from 'path'
 
-// Sequelize
-import { Sequelize } from 'sequelize-typescript'
-import User from '../models/User'
+// Sequelize - model
+import User from '../models/User.model'
+// import {User} from '../models'
 
 // md5加密解密
 import {encode} from '../utils'
@@ -13,18 +13,6 @@ import { bodyConfig } from 'server'
 // jwt
 import {dealJwt} from '../utils'
 const { encodeJwt, decodeJwt } = dealJwt
-
-// const sequelizeObject = new Sequelize({
-//   database: 'activity',
-//   dialect: 'mysql',
-//   username: 'root',
-//   password: '5211314mxx',
-//   logging: false // 控制台不要输出 mysql 语句
-//   // modelPaths: [__dirname + '/models']
-// })
-// 以上可以简写
-const sequelizeObject = new Sequelize('mysql://root:5211314mxx@127.0.0.1/activity')
-sequelizeObject.addModels([path.resolve(__dirname, `../models/`)])
 
 @Controller()
 export default class {
@@ -75,16 +63,18 @@ export default class {
     
     let bodyObj: bodyConfig 
     if (encodePwd == secret) {
-      
+      // 生成jwt 
+      const jwtToken = encodeJwt(name)
+
       bodyObj = {
         code: 200,
-        messgae: '登录成功',
+        message: '登录成功',
         jwtToken
       }
     } else {
       bodyObj = {
         code: 500,
-        messgae: '登录失败'
+        message: '登录失败'
       }
     }
 
@@ -116,6 +106,8 @@ export default class {
     const encodePwd = encode(password)
 
     // 接受到 name 和  password 放入mysql库
+    let bodyObj: bodyConfig 
+
     try {
       await User.create({
         name,
@@ -125,15 +117,19 @@ export default class {
       // 生成jwt 
       const jwtToken = encodeJwt(name)
 
-      return {
+      bodyObj = {
         code: 200,
+        message: '注册成功',
         jwtToken
       }
     } catch (e) {
-      return {
-        code: 500
+      bodyObj = {
+        code: 500,
+        message: '注册失败'
       }
     }
+
+    return bodyObj
   }
 }
 
