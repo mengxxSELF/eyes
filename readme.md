@@ -36,6 +36,12 @@ npm run devts
 npm run buildts
 ```
 
+### 功能记录
+
+| 功能 | 调整 |
+| --- | --- |
+|  | |
+
 #### 掉坑记录
 
 * 无法使用webpack-dev-server
