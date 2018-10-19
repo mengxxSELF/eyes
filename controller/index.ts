@@ -11,7 +11,7 @@ const app = createKoaServer({
   controllers: [path.resolve(__dirname, `./server/*.js`)],
 })
 
-const port = 7777
+const port = 9097
 
 // 从dist目录中获取静态资源
 app.use(require('koa-static')(path.join(__dirname, '../dist')))

@@ -33,19 +33,18 @@
     "@types/node": "^10.11.7",
     "@types/sequelize": "^4.27.28",
     "apidoc": "^0.17.6",
+    "shipit-cnpm": "^0.7.0",
+    "shipit-deploy": "^4.1.1",
+    "shipit-pm": "^0.3.0",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.1.2"
+  },
+  "dependencies": {
     "koa": "^2.0.0-alpha.8",
     "koa-static": "^5.0.0",
     "mysql": "^2.16.0",
     "mysql2": "^1.6.1",
     "node-sass": "^4.9.3",
-    "shipit-cnpm": "^0.7.0",
-    "shipit-deploy": "^4.1.1",
-    "shipit-pm": "^0.3.0",
-    "sqlite3": "^4.0.2",
-    "ts-node": "^7.0.1",
-    "typescript": "^3.1.2"
-  },
-  "dependencies": {
     "@types/consolidate": "0.0.34",
     "@types/jsonwebtoken": "^7.2.8",
     "@types/koa-jwt": "^3.3.0",
@@ -54,7 +53,6 @@
     "crypto": "^1.0.1",
     "http": "^0.0.0",
     "jsonwebtoken": "^8.3.0",
-    "koa": "^2.5.3",
     "koa-bodyparser": "^4.2.1",
     "koa-jwt": "^3.5.1",
     "koa-router": "^7.4.0",
@@ -63,7 +61,6 @@
     "reflect-metadata": "^0.1.12",
     "routing-controllers": "^0.7.7",
     "sequelize": "^4.39.0",
-    "sequelize-typescript": "^0.6.6",
-    "sqlite3": "^4.0.2"
+    "sequelize-typescript": "^0.6.6"
   }
 }

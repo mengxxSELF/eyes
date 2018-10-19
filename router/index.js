@@ -13,7 +13,7 @@ const mysql_1 = require("./config/mysql");
 const app = routing_controllers_1.createKoaServer({
     controllers: [path_1.default.resolve(__dirname, `./server/*.js`)],
 });
-const port = 7777;
+const port = 9097;
 // 从dist目录中获取静态资源
 app.use(require('koa-static')(path_1.default.join(__dirname, '../dist')));
 // app.use(views(path.join(__dirname, '../dist'), {
