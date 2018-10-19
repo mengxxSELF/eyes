@@ -46,9 +46,11 @@
     "typescript": "^3.1.2"
   },
   "dependencies": {
+    "@types/consolidate": "0.0.34",
     "@types/jsonwebtoken": "^7.2.8",
     "@types/koa-jwt": "^3.3.0",
     "@types/moment": "^2.13.0",
+    "consolidate": "^0.15.1",
     "crypto": "^1.0.1",
     "http": "^0.0.0",
     "jsonwebtoken": "^8.3.0",

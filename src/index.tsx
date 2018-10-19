@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom"
 import { Route, Switch, HashRouter } from 'react-router-dom'
 import './index.scss'
 
-import {Index, Login} from './container'
+import { Index, Login, Register, User } from './container'
 
 class Main extends React.Component {
   componentDidMount () {
@@ -16,12 +16,11 @@ class Main extends React.Component {
     return (
       <HashRouter>
         <Switch>
-          <Route exact path='/' render={() => {
-            return <Index />
-          }} />
-          <Route path='/login' render={() => {
-            return <Login />
-          }} />
+          <Route path='/register' component={Register} />
+          <Route path='/login' component={Login} />
+          <Route path='/' component={Index}>
+            <Route path='/user' component={User} />
+          </Route>
         </Switch>
       </HashRouter>
     )

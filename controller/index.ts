@@ -16,27 +16,24 @@ const port = 7777
 // 从dist目录中获取静态资源
 app.use(require('koa-static')(path.join(__dirname, '../dist')))
 
-app.use(views(path.join(__dirname, '../dist'), {
-  extension: 'html'
-}))
+// app.use(views(path.join(__dirname, '../dist'), {
+//   extension: 'html'
+// }))
 
 app.use(bodyParser())
 
 app.use(
   jwtKoa({secret: SECRET})
   .unless({
-    path: [/\/register/] // 数组中的路径不需要通过jwt验证
+    path: [/\/register/, /\/login/] // 数组中的路径不需要通过jwt验证
   })
 )
 
 
-// console.log(path.resolve(__dirname, './models/User.model'))
-
-const pathDir = path.resolve(__dirname, './models/User.model')
-console.log(pathDir)
+// 注意这里如果写了具体的 model 文件名字就会报错  -- 很奇怪 只能用*
+const pathDir = path.resolve(__dirname, './models/*.model.js')
 // 链接mysql
 sequelizeObject.addModels([ pathDir ])
-// sequelizeObject.addModels(['./models/*..model.js'])
 
 // app.use(main.routes())
 // app.use(main.allowedMethods())
@@ -46,7 +43,7 @@ sequelizeObject.addModels([ pathDir ])
   // })
 
 app.listen(port, async() => {
-  // await sequelize.sync({ force: true })
+  await sequelizeObject.sync({ force: true })
   console.log('the port is', port)
 })
 

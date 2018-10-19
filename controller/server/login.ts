@@ -1,10 +1,8 @@
 import { Controller, Render, Get, HeaderParam, Param, QueryParam } from "routing-controllers"
 import fs from 'fs'
 import path from 'path'
-
 // Sequelize - model
-import User from '../models/User.model'
-// import {User} from '../models'
+import {User} from '../models'
 
 // md5加密解密
 import {encode} from '../utils'
@@ -20,7 +18,7 @@ export default class {
   async index (
     @HeaderParam('device') device: string
   ) {
-    const body = fs.readFileSync(path.resolve('dist', 'index.html'))
+    const body = fs.readFileSync(path.resolve('dist', 'index.html'), 'utf-8')
     return body
   }
 
@@ -131,6 +129,32 @@ export default class {
 
     return bodyObj
   }
+
+  /**
+   * @api {get} /remove 用户注销信息
+   * @apiExample {curl} Example usage:
+   *    curl -i localhost:7777/remove/1
+   * @apiName remove
+   * @apiGroup users 用户组
+   * 
+   * @apiSuccess {Number} code 200 success 500 failture
+  */
+  @Get('/remove/:id')
+  async remove (
+    @Param('id') id: number
+  ) {
+    console.log('wwww')
+    let body: bodyConfig 
+    await User.destroy({
+      where: {id}
+    }).then(() => {
+      body = { code: 200, message: 'success' }
+    }).then(() => {
+      body = { code: 500, message: 'failture' }
+    })
+    return body
+  }
+
 }
 
 

@@ -1,8 +1,8 @@
 /*
- * @Author: 孟闲闲  定义表结构  eyes_info 
- * @Date: 2018-10-18 11:09:18 
+ * @Author: 孟闲闲  定义表结构  eyes_info
+ * @Date: 2018-10-18 11:09:18
  * @Last Modified by: mxx
- * @Last Modified time: 2018-10-18 16:45:43
+ * @Last Modified time: 2018-10-19 17:06:13
  */
 import { Table, Column, Model } from 'sequelize-typescript'
 
@@ -12,14 +12,16 @@ console.log('info infoinfoinfoinfo ')
   tableName: 'eyes_info'
 })
 export default class Info extends Model<Info> {
-  @Column({
-    primaryKey: true,
-    comment: 'info id'
-  })
-  id: number
+  // @Column({
+  //   primaryKey: true,
+  //   autoIncrement: true,
+  //   comment: 'info id'
+  // })
+  // id: number
 
   @Column({
-    comment: 'user id'
+    comment: 'user id',
+    primaryKey: true,
   })
   userId: number
 
@@ -28,4 +30,3 @@ export default class Info extends Model<Info> {
   })
   birthday: string
 }
-

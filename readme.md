@@ -550,3 +550,13 @@ sequelize-typescript
 
 每次重启自动删除文件夹
 
+
+
+### 目前有坑
+
+1 webpack-dev-sever 无法和后台服务保持一致
+
+2 返回读取的文件内容 无法render到页面中
+
+3 cons 没有什么用
+
