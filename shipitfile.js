@@ -27,7 +27,8 @@ module.exports = function (shipit) {
       }
     },
     production: {
-      servers: ['root@47.104.231.146'],
+      servers: ['root@101.200.45.254'],
+      // servers: ['root@47.104.231.146'],
       branch: 'master'
     }
   })
