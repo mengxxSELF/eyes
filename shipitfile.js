@@ -1,8 +1,8 @@
 'use strict'
 
 module.exports = function (shipit) {
-  require('shipit-deploy')(shipit)
-  require('shipit-cnpm')(shipit)
+  require('shipit-better-deploy')(shipit)
+  require('shipit-better-cnpm')(shipit)
   require('shipit-pm')(shipit)
   shipit.initConfig({
     default: {
