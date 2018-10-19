@@ -40,11 +40,6 @@
     "typescript": "^3.1.2"
   },
   "dependencies": {
-    "koa": "^2.0.0-alpha.8",
-    "koa-static": "^5.0.0",
-    "mysql": "^2.16.0",
-    "mysql2": "^1.6.1",
-    "node-sass": "^4.9.3",
     "@types/consolidate": "0.0.34",
     "@types/jsonwebtoken": "^7.2.8",
     "@types/koa-jwt": "^3.3.0",
@@ -53,14 +48,20 @@
     "crypto": "^1.0.1",
     "http": "^0.0.0",
     "jsonwebtoken": "^8.3.0",
+    "koa": "^2.0.0-alpha.8",
     "koa-bodyparser": "^4.2.1",
     "koa-jwt": "^3.5.1",
     "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
     "koa-views": "^6.1.4",
     "moment": "^2.22.2",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.1",
+    "node-sass": "^4.9.3",
     "reflect-metadata": "^0.1.12",
     "routing-controllers": "^0.7.7",
     "sequelize": "^4.39.0",
-    "sequelize-typescript": "^0.6.6"
+    "sequelize-typescript": "^0.6.6",
+    "shipit-better-deploy": "^0.0.6"
   }
 }
