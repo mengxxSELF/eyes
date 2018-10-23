@@ -19,8 +19,9 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const routing_controllers_1 = require("routing-controllers");
-// 使用Info模型处理 
+// 使用Info模型处理
 const models_1 = require("../models");
+// uid
 let default_1 = class default_1 {
     async add(info) {
         const { id: userId, birthday } = info;
@@ -37,6 +38,7 @@ let default_1 = class default_1 {
         }).catch(() => {
             body = { code: 500, message: 'failture' };
         });
+        console.log(body);
         return body;
     }
     async info(name) {
@@ -76,7 +78,7 @@ __decorate([
 ], default_1.prototype, "info", null);
 __decorate([
     routing_controllers_1.Get('/group/:groupid'),
-    __param(0, routing_controllers_1.Param('groupid')),
+    __param(0, routing_controllers_1.Params('groupid')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)

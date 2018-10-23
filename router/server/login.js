@@ -24,12 +24,13 @@ const { encodeJwt, decodeJwt } = utils_2.dealJwt;
 // text/html  直接修改文件的content-type 类型
 let default_1 = class default_1 {
     async index(device) {
+        console.log('// COMBAK: ');
         // console.log(path.resolve(__dirname, '../../dist/index.html'))
         // return cons.swig(path.resolve(__dirname, '../../dist/index.html'))
         // const body = fs.readFileSync(path.resolve('dist', 'index.html'))
         // const body = fs.readFileSync(path.resolve('dist', 'index.html'), 'utf-8')
         // return body
-        return 200;
+        // return 200
     }
     /**
      * @api {get} /login 用户登录
@@ -127,7 +128,7 @@ let default_1 = class default_1 {
      * @apiSuccess {Number} code 200 success 500 failture
     */
     async remove(id) {
-        console.log('wwww');
+        console.log('wwww  ------- wwww', id, typeof id);
         let body;
         await models_1.User.destroy({
             where: { id }
@@ -167,7 +168,7 @@ __decorate([
     routing_controllers_1.Get('/remove/:id'),
     __param(0, routing_controllers_1.Param('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], default_1.prototype, "remove", null);
 default_1 = __decorate([

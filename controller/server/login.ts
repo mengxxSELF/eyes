@@ -19,16 +19,17 @@ const { encodeJwt, decodeJwt } = dealJwt
 @Controller()
 export default class {
   @Get('/')
-  @ContentType('text/html')	
+  @ContentType('text/html')
   async index (
     @HeaderParam('device') device: string,
   ) {
+    console.log('// COMBAK: ')
     // console.log(path.resolve(__dirname, '../../dist/index.html'))
     // return cons.swig(path.resolve(__dirname, '../../dist/index.html'))
     // const body = fs.readFileSync(path.resolve('dist', 'index.html'))
     // const body = fs.readFileSync(path.resolve('dist', 'index.html'), 'utf-8')
     // return body
-    return 200
+    // return 200
   }
 
   /**
@@ -150,9 +151,9 @@ export default class {
   */
   @Get('/remove/:id')
   async remove (
-    @Param('id') id: number
+    @Param('id') id: any
   ) {
-    console.log('wwww')
+    console.log('wwww  ------- wwww', id, typeof id)
     let body: bodyConfig
     await User.destroy({
       where: {id}
