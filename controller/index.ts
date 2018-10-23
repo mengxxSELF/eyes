@@ -11,7 +11,8 @@ const app = createKoaServer({
   controllers: [path.resolve(__dirname, `./server/*.js`)],
 })
 
-const port = 9097
+const port = 7777
+// const port = 9097
 
 // 从dist目录中获取静态资源
 app.use(require('koa-static')(path.join(__dirname, '../dist')))
@@ -34,6 +35,7 @@ app.use(
 const pathDir = path.resolve(__dirname, './models/*.model.js')
 // 链接mysql
 sequelizeObject.addModels([ pathDir ])
+// Info.belongsTo(User)
 
 // app.use(main.routes())
 // app.use(main.allowedMethods())

@@ -13,7 +13,8 @@ const mysql_1 = require("./config/mysql");
 const app = routing_controllers_1.createKoaServer({
     controllers: [path_1.default.resolve(__dirname, `./server/*.js`)],
 });
-const port = 9097;
+const port = 7777;
+// const port = 9097
 // 从dist目录中获取静态资源
 app.use(require('koa-static')(path_1.default.join(__dirname, '../dist')));
 // app.use(views(path.join(__dirname, '../dist'), {
@@ -28,6 +29,7 @@ app.use(koa_jwt_1.default({ secret: common_1.SECRET })
 const pathDir = path_1.default.resolve(__dirname, './models/*.model.js');
 // 链接mysql
 mysql_1.sequelizeObject.addModels([pathDir]);
+// Info.belongsTo(User)
 // app.use(main.routes())
 // app.use(main.allowedMethods())
 // app.on('error', (err, ctx) => {

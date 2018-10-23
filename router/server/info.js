@@ -39,6 +39,14 @@ let default_1 = class default_1 {
         });
         return body;
     }
+    async info(name) {
+        // 根据用户名 查询用户基本信息
+        // 连表查询 - 用户名 查id 根据id查birthday
+        await models_1.Info.findOne({ include: [models_1.User] }).then((res) => {
+            console.log(res);
+        });
+        return { code: 200 };
+    }
     /**
      * @api {get} /group 获取用户参与组
      * @apiExample {curl} Example usage:
@@ -59,6 +67,13 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], default_1.prototype, "add", null);
+__decorate([
+    routing_controllers_1.Get('/userinfo/:name'),
+    __param(0, routing_controllers_1.Params()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], default_1.prototype, "info", null);
 __decorate([
     routing_controllers_1.Get('/group/:groupid'),
     __param(0, routing_controllers_1.Param('groupid')),

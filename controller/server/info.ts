@@ -5,9 +5,10 @@
  * @Last Modified time: 2018-10-19 18:39:18
  */
 
-import { Controller, Post, Body, Get, Param } from "routing-controllers"
+import { Controller, Post, Body, Get, Param, Params } from "routing-controllers"
 // 使用Info模型处理 
-import { Info } from '../models' 
+import { Info, User } from '../models' 
+// Info.belongsTo(User)
 
 import { bodyConfig } from 'server'
 
@@ -32,6 +33,18 @@ export default class {
       body = { code: 500, message: 'failture' }
     })
     return body
+  }
+
+  @Get('/userinfo/:name')
+  async info(
+    @Params() name: number
+  ){
+    // 根据用户名 查询用户基本信息
+    // 连表查询 - 用户名 查id 根据id查birthday
+    await Info.findOne({include: [User]}).then((res) => {
+      console.log(res)
+    })
+    return {code: 200}
   }
 
 

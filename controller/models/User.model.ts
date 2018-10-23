@@ -4,7 +4,8 @@
  * @Last Modified by: mxx
  * @Last Modified time: 2018-10-19 17:05:55
  */
-import { Table, Column, Model, DataType } from 'sequelize-typescript'
+import { Table, Column, Model, DataType, HasOne } from 'sequelize-typescript'
+import { Info } from './'
 
 @Table({
   tableName: 'eyes_users'

@@ -11,13 +11,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const routing_controllers_1 = require("routing-controllers");
-const fs_1 = __importDefault(require("fs"));
-const path_1 = __importDefault(require("path"));
+// import cons from 'consolidate'
 // Sequelize - model
 const models_1 = require("../models");
 // md5加密解密
@@ -25,10 +21,15 @@ const utils_1 = require("../utils");
 // jwt
 const utils_2 = require("../utils");
 const { encodeJwt, decodeJwt } = utils_2.dealJwt;
+// text/html  直接修改文件的content-type 类型
 let default_1 = class default_1 {
     async index(device) {
-        const body = fs_1.default.readFileSync(path_1.default.resolve('dist', 'index.html'), 'utf-8');
-        return body;
+        // console.log(path.resolve(__dirname, '../../dist/index.html'))
+        // return cons.swig(path.resolve(__dirname, '../../dist/index.html'))
+        // const body = fs.readFileSync(path.resolve('dist', 'index.html'))
+        // const body = fs.readFileSync(path.resolve('dist', 'index.html'), 'utf-8')
+        // return body
+        return 200;
     }
     /**
      * @api {get} /login 用户登录
@@ -59,7 +60,7 @@ let default_1 = class default_1 {
         // console.log(encodePwd, 'encodePwd', secret)
         let bodyObj;
         if (encodePwd == secret) {
-            // 生成jwt 
+            // 生成jwt
             const jwtToken = encodeJwt(name);
             bodyObj = {
                 code: 200,
@@ -100,7 +101,7 @@ let default_1 = class default_1 {
                 name,
                 password: encodePwd
             });
-            // 生成jwt 
+            // 生成jwt
             const jwtToken = encodeJwt(name);
             bodyObj = {
                 code: 200,
@@ -140,6 +141,7 @@ let default_1 = class default_1 {
 };
 __decorate([
     routing_controllers_1.Get('/'),
+    routing_controllers_1.ContentType('text/html'),
     __param(0, routing_controllers_1.HeaderParam('device')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),

@@ -1,6 +1,7 @@
-import { Controller, Render, Get, HeaderParam, Param, QueryParam } from "routing-controllers"
+import { Controller, Render, Get, HeaderParam, Param, QueryParam, Ctx, ContentType } from "routing-controllers"
 import fs from 'fs'
 import path from 'path'
+// import cons from 'consolidate'
 // Sequelize - model
 import {User} from '../models'
 
@@ -10,16 +11,24 @@ import { bodyConfig } from 'server'
 
 // jwt
 import {dealJwt} from '../utils'
+
 const { encodeJwt, decodeJwt } = dealJwt
+
+// text/html  直接修改文件的content-type 类型
 
 @Controller()
 export default class {
   @Get('/')
+  @ContentType('text/html')	
   async index (
-    @HeaderParam('device') device: string
+    @HeaderParam('device') device: string,
   ) {
-    const body = fs.readFileSync(path.resolve('dist', 'index.html'), 'utf-8')
-    return body
+    // console.log(path.resolve(__dirname, '../../dist/index.html'))
+    // return cons.swig(path.resolve(__dirname, '../../dist/index.html'))
+    // const body = fs.readFileSync(path.resolve('dist', 'index.html'))
+    // const body = fs.readFileSync(path.resolve('dist', 'index.html'), 'utf-8')
+    // return body
+    return 200
   }
 
   /**
@@ -28,7 +37,7 @@ export default class {
    *    curl -i localhost:7777/login?name=tom&password=123
    * @apiName login
    * @apiGroup users 用户组
-   * 
+   *
    * @apiParam {Number} name 用户名
    * @apiParam {Number} password 用户密码
    * @apiSuccess {Number} code 200 success 500 failture
@@ -58,10 +67,10 @@ export default class {
     const {password: secret} = user
 
     // console.log(encodePwd, 'encodePwd', secret)
-    
-    let bodyObj: bodyConfig 
+
+    let bodyObj: bodyConfig
     if (encodePwd == secret) {
-      // 生成jwt 
+      // 生成jwt
       const jwtToken = encodeJwt(name)
 
       bodyObj = {
@@ -85,12 +94,12 @@ export default class {
    *    curl -i localhost:7777/register?name=tom&password=123
    * @apiName register
    * @apiGroup users 用户组
-   * 
+   *
    * @apiParam {Number} name 用户名
    * @apiParam {Number} password 用户密码
    * @apiSuccess {Number} code 200 success 500 failture
   */
- 
+
   @Get('/register')
   async insertUser (
     @QueryParam('name') name: string,
@@ -104,7 +113,7 @@ export default class {
     const encodePwd = encode(password)
 
     // 接受到 name 和  password 放入mysql库
-    let bodyObj: bodyConfig 
+    let bodyObj: bodyConfig
 
     try {
       await User.create({
@@ -112,7 +121,7 @@ export default class {
         password: encodePwd
       })
 
-      // 生成jwt 
+      // 生成jwt
       const jwtToken = encodeJwt(name)
 
       bodyObj = {
@@ -136,7 +145,7 @@ export default class {
    *    curl -i localhost:7777/remove/1
    * @apiName remove
    * @apiGroup users 用户组
-   * 
+   *
    * @apiSuccess {Number} code 200 success 500 failture
   */
   @Get('/remove/:id')
@@ -144,7 +153,7 @@ export default class {
     @Param('id') id: number
   ) {
     console.log('wwww')
-    let body: bodyConfig 
+    let body: bodyConfig
     await User.destroy({
       where: {id}
     }).then(() => {

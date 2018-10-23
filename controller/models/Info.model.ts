@@ -4,8 +4,8 @@
  * @Last Modified by: mxx
  * @Last Modified time: 2018-10-19 17:06:13
  */
-import { Table, Column, Model } from 'sequelize-typescript'
-
+import { Table, Column, Model, BelongsTo, ForeignKey } from 'sequelize-typescript'
+import { User } from './'
 console.log('info infoinfoinfoinfo ')
 
 @Table({
