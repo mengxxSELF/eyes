@@ -45,4 +45,3 @@ exports.default = {
     encodeJwt,
     decodeJwt
 };
-//# sourceMappingURL=jwt.js.map

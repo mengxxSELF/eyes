@@ -11,9 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const routing_controllers_1 = require("routing-controllers");
-// import cons from 'consolidate'
+const path_1 = __importDefault(require("path"));
+const consolidate_1 = __importDefault(require("consolidate"));
 // Sequelize - model
 const models_1 = require("../models");
 // md5加密解密
@@ -24,9 +28,9 @@ const { encodeJwt, decodeJwt } = utils_2.dealJwt;
 // text/html  直接修改文件的content-type 类型
 let default_1 = class default_1 {
     async index(device) {
-        console.log('// COMBAK: ');
+        // console.log('// COMBAK: ')
         // console.log(path.resolve(__dirname, '../../dist/index.html'))
-        // return cons.swig(path.resolve(__dirname, '../../dist/index.html'))
+        return consolidate_1.default.swig(path_1.default.resolve(__dirname, '../../dist/index.html'));
         // const body = fs.readFileSync(path.resolve('dist', 'index.html'))
         // const body = fs.readFileSync(path.resolve('dist', 'index.html'), 'utf-8')
         // return body
@@ -189,4 +193,3 @@ async function isExist(name) {
     });
     return end;
 }
-//# sourceMappingURL=login.js.map

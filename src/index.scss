@@ -1,3 +1,4 @@
+@import '~antd/dist/antd.css';
 * {
   padding: 0;
   margin: 0;
@@ -7,6 +8,14 @@
 }
 a {
     text-decoration: none;
+}
+
+body {
+    max-width: 375px;
+    margin: 0 auto;
+}
+.left {
+  background: #ccc;  
 }
 button {
     display: inline-block;

@@ -3,7 +3,7 @@
  * @Author: 孟闲闲 - 补充身份信息
  * @Date: 2018-10-18 16:49:45
  * @Last Modified by: mxx
- * @Last Modified time: 2018-10-19 18:39:18
+ * @Last Modified time: 2018-10-23 20:25:06
  */
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -71,14 +71,14 @@ __decorate([
 ], default_1.prototype, "add", null);
 __decorate([
     routing_controllers_1.Get('/userinfo/:name'),
-    __param(0, routing_controllers_1.Params()),
+    __param(0, routing_controllers_1.Param('name')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], default_1.prototype, "info", null);
 __decorate([
     routing_controllers_1.Get('/group/:groupid'),
-    __param(0, routing_controllers_1.Params('groupid')),
+    __param(0, routing_controllers_1.Param('groupid')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
@@ -87,4 +87,3 @@ default_1 = __decorate([
     routing_controllers_1.Controller()
 ], default_1);
 exports.default = default_1;
-//# sourceMappingURL=info.js.map

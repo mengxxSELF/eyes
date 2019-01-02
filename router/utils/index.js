@@ -6,4 +6,3 @@ exports.encode = encode_1.default;
 // jwt - 
 var jwt_1 = require("./jwt");
 exports.dealJwt = jwt_1.default;
-//# sourceMappingURL=index.js.map

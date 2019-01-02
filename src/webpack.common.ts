@@ -5,6 +5,7 @@ import { modules, plugins, resolves } from './webpack'
 console.log('I am common.ts', path.resolve(__dirname, '../dist'))
 
 const config: Configuration = {
+  watch: true,
   entry: {
     vendor: ['react', 'react-dom'],
     index: './index.tsx'

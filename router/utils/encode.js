@@ -25,4 +25,3 @@ decodeFn = (password) => {
     return hmac.update(password).digest('base64');
 };
 exports.default = decodeFn;
-//# sourceMappingURL=encode.js.map

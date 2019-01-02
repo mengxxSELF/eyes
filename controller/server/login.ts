@@ -1,7 +1,7 @@
 import { Controller, Render, Get, HeaderParam, Param, QueryParam, Ctx, ContentType } from "routing-controllers"
 import fs from 'fs'
 import path from 'path'
-// import cons from 'consolidate'
+import cons from 'consolidate'
 // Sequelize - model
 import {User} from '../models'
 
@@ -23,9 +23,9 @@ export default class {
   async index (
     @HeaderParam('device') device: string,
   ) {
-    console.log('// COMBAK: ')
+    // console.log('// COMBAK: ')
     // console.log(path.resolve(__dirname, '../../dist/index.html'))
-    // return cons.swig(path.resolve(__dirname, '../../dist/index.html'))
+    return cons.swig(path.resolve(__dirname, '../../dist/index.html'))
     // const body = fs.readFileSync(path.resolve('dist', 'index.html'))
     // const body = fs.readFileSync(path.resolve('dist', 'index.html'), 'utf-8')
     // return body

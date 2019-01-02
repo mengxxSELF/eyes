@@ -7,4 +7,3 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SECRET = 'mxx';
-//# sourceMappingURL=common.js.map

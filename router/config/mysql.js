@@ -34,4 +34,3 @@ const sequelize_typescript_1 = require("sequelize-typescript");
 // })
 // 以上可以简写
 exports.sequelizeObject = new sequelize_typescript_1.Sequelize('mysql://root:5211314mxx@127.0.0.1/activity');
-//# sourceMappingURL=mysql.js.map

@@ -60,4 +60,3 @@ process.on('uncaughtException', err => {
     console.log(err.stack);
     process.exit();
 });
-//# sourceMappingURL=index.js.map

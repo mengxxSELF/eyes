@@ -38,4 +38,3 @@ Info = __decorate([
     })
 ], Info);
 exports.default = Info;
-//# sourceMappingURL=Info.model.js.map

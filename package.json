@@ -4,7 +4,6 @@
   "description": "eyes",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "devts": "TS_NODE_PROJECT=tsconfig-for-webpack-config.json webpack-dev-server --open --hot --config ./src/webpack.dev.ts",
     "deploy": "shipit production deploy",
     "ts": "rm -fr router; tsc -w",
